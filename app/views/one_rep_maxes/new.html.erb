@@ -1,9 +1,13 @@
-<hr>
 <div>
 <%= link_to "<< Back", lifter_one_rep_maxes_path %>
 </div>
 <%= form_for [@lifter, @max] do |f| %>
-  <table>
+  <table class="table">
+    <tr>
+      <th></th>
+      <th>Weight</th>
+      <th>Reps</th>
+    </tr>
     <tr>
       <td>
         <%= f.label :deadlift %>
@@ -56,7 +60,7 @@
     
   </table>
   <br>
-  <div>
-    <%= f.submit "Create One Rep Max" %>
+  <div class="text-center"> 
+    <%= f.submit "Create One Rep Max", class: "btn btn-lg btn-primary" %>
   </div>
 <% end %>

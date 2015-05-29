@@ -1,9 +1,8 @@
-<hr>
 <%= link_to "Enter New Maxes", new_lifter_one_rep_max_path(@lifter) %> - 
 <%= link_to "Increment Previous Week's Maxes", lifter_new_week_path(@lifter) %>
 <br>
 <div>
-  <table>
+  <table class="table table-striped table-hover">
     <tr>
       <th>Date</th>
       <th>Deadlift</th>
@@ -15,10 +14,10 @@
     <% @maxes.each do |max| %>
     <tr>
       <td><%= max.created_at.strftime("%d-%m-%Y") %></td>
-      <td><%= max.deadlift %></td>
-      <td><%= max.squat %></td>
-      <td><%= max.benchpress %></td>
-      <td><%= max.overheadpress %></td>
+      <td width="14%"><%= max.deadlift %></td>
+      <td width="12%"><%= max.squat %></td>
+      <td width="16%"><%= max.benchpress %></td>
+      <td width="18%"><%= max.overheadpress %></td>
       <td><%= link_to "Generate Workout Plan", lifter_one_rep_max_plan_path(@lifter, max) %></td>
     </tr>
     <% end %>
