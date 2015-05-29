@@ -1,0 +1,27 @@
+<%= link_to "<< Back", root_path %>
+<hr>
+<%= link_to "Enter New Maxes", new_lifter_one_rep_max_path(@lifter) %>
+
+<br>
+<div>
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Deadlift</th>
+      <th>Squat</th>
+      <th>Bench Press</th>
+      <th>Overhead Press</th>
+      <th></th>
+    </tr>
+    <% @maxes.each do |max| %>
+    <tr>
+      <td><%= max.created_at.strftime("%d-%m-%Y") %></td>
+      <td><%= max.deadlift %></td>
+      <td><%= max.squat %></td>
+      <td><%= max.benchpress %></td>
+      <td><%= max.overheadpress %></td>
+      <td><%= link_to "Generate Workout Plan", lifter_one_rep_max_plan_path(@lifter, max) %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>

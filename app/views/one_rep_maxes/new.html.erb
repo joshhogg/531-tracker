@@ -1,0 +1,51 @@
+<div>
+<%= link_to "<< Back", lifter_one_rep_maxes_path %>
+</div>
+<hr>
+<%= form_for [@lifter, @max] do |f| %>
+  <table>
+    <tr>
+      <td>
+        <%= f.label :deadlift %>
+      </td>
+      <td>
+        <%= f.number_field :deadlift, :value=>(@previous_max.deadlift)  %>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <%= f.label :squat %>
+      </td>
+      <td>
+        <%= f.number_field :squat, :value=>(@previous_max.squat) %>
+      </td>
+    </tr>
+      
+    <tr>
+      <td>
+        <%= f.label :benchpress %>
+      </td>
+      <td>
+        <%= f.number_field :benchpress, :value=>(@previous_max.benchpress) %>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <%= f.label :overheadpress, "Overhead Press" %>
+      </td>
+      <td>
+        <%= f.number_field :overheadpress, :value=>(@previous_max.overheadpress) %>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+      </td>
+      <td>
+        <%= f.submit "Create One Rep Max" %>
+      </td>
+    </tr>
+  </table>
+<% end %>

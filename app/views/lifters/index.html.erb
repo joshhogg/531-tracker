@@ -1,0 +1,9 @@
+<table>
+<% @lifters.each do |lifter| %>
+      <tr>
+        <td><%= lifter.name %></td>
+        <td><%= lifter.email %></td>
+        <td><%= link_to "Lifts", lifter_one_rep_maxes_path(lifter) %></td>
+      </tr>
+<% end %>
+</table>

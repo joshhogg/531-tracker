@@ -1,0 +1,33 @@
+<%= link_to "<< Back", lifter_one_rep_maxes_path %>
+<hr>
+
+<% @table.each_with_index do |week, index| %>
+  
+  <h1 align="center">Week <%= index + 1 %></h1>
+  <table align="center">
+    <tr>
+      <th></th>
+      <th>Day 1 - Overhead Press</th>
+      <th>Day 2 - Deadlift</th>
+      <th>Day 3 - Benchpress</th>
+      <th>Day 4 - Squats</th>
+    </tr>
+
+  <% j = week[0].length - 1 %>
+  <% i = week.length - 1 %>
+
+  <% for j in (0..j) do %>
+    <tr>
+      <% if j == 0 %>
+        <td rowspan=3>Warm-Up</td>
+      <% elsif j == 3 %>
+        <td rowspan=3>5/3/1</td>
+      <% end %>
+      <% for i in (0..i) do %>
+        <td><%= week[i][j] %>
+      <% end %>
+    </tr>
+  <% end %>
+  </table>
+
+<% end %>
