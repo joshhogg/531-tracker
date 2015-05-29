@@ -14,6 +14,12 @@ class OneRepMaxesController < ApplicationController
     @max = @lifter.one_rep_maxes.new
   end
   
+  def new_week
+    @lifter = find_lifter
+    @new_max = increment_maxes @lifter.one_rep_maxes.last
+    @max = @lifter.one_rep_maxes.new
+  end
+  
   def create
     #modify this code to later either update the previous entry from that day
     #or create the entry if its the first on that day
@@ -36,12 +42,21 @@ class OneRepMaxesController < ApplicationController
   private
     
     def one_rep_max_params
-      params.require(:one_rep_max).permit(:deadlift, :squat, :benchpress, :overheadpress)
+      params.require(:one_rep_max).permit(:deadlift_wt, :squat_wt, :benchpress_wt, :overheadpress_wt,
+                                          :deadlift_reps, :squat_reps, :benchpress_reps, :overheadpress_reps)
     end
 
   
     def find_lifter
-      Lifter.find(params[:lifter_id])
+      Lifter.find(current_lifter.id)
     end
  
+    def increment_maxes maxes
+      maxes.deadlift += 10
+      maxes.squat += 10
+      maxes.benchpress += 5
+      maxes.overheadpress += 5
+      return maxes
+    end
+      
 end

@@ -50,7 +50,7 @@ class LiftCalculator
         day_column = []
         column_values = lift_percentages(week).zip lift_reps(week)
         column_values.each do |percent, reps|
-          day_column.push("#{nearest_5(calculate_weight(day, percent)).to_i} x #{reps}")
+          day_column.push("#{nearest_5(calculate_weight(day, percent).to_i)} x #{reps}")
         end
         week_table.push(day_column)
       end

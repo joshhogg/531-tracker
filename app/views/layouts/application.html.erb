@@ -7,6 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  
+<% if lifter_signed_in? %>
+  Logged in as <strong><%= current_lifter.name %></strong>.
+  <%= link_to 'Edit profile', edit_lifter_registration_path  %> |
+  <%= link_to "Logout", destroy_lifter_session_path, method: :delete  %>
+<% else %>
+  <%= link_to "Sign up", new_lifter_registration_path %> |
+  <%= link_to "Login", new_lifter_session_path  %>
+<% end %>
+
+
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
 
 <%= yield %>
 

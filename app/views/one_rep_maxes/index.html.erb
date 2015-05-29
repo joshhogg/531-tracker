@@ -1,7 +1,6 @@
-<%= link_to "<< Back", root_path %>
 <hr>
-<%= link_to "Enter New Maxes", new_lifter_one_rep_max_path(@lifter) %>
-
+<%= link_to "Enter New Maxes", new_lifter_one_rep_max_path(@lifter) %> - 
+<%= link_to "Increment Previous Week's Maxes", lifter_new_week_path(@lifter) %>
 <br>
 <div>
   <table>
