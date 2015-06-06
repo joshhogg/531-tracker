@@ -13,7 +13,7 @@
         <%= f.label :deadlift %>
       </td>
       <td>
-        <%= f.number_field :deadlift_wt, :value=>(@previous_max.deadlift)  %>
+        <%= f.number_field :deadlift_wt, :value=>(@previous_max.try(:deadlift))  %>
       </td>
       <td>
         <%= f.number_field :deadlift_reps, :value=>(1)  %>
@@ -25,7 +25,7 @@
         <%= f.label :squat %>
       </td>
       <td>
-        <%= f.number_field :squat_wt, :value=>(@previous_max.squat) %>
+        <%= f.number_field :squat_wt, :value=>(@previous_max.try(:squat)) %>
       </td>
       <td>
         <%= f.number_field :squat_reps, :value=>(1) %>
@@ -37,7 +37,7 @@
         <%= f.label :benchpress %>
       </td>
       <td>
-        <%= f.number_field :benchpress_wt, :value=>(@previous_max.benchpress) %>
+        <%= f.number_field :benchpress_wt, :value=>(@previous_max.try(:benchpress)) %>
       </td>
       <td>
         <%= f.number_field :benchpress_reps, :value=>(1) %>
@@ -50,7 +50,7 @@
         <%= f.label :overheadpress, "Overhead Press" %>
       </td>
       <td>
-        <%= f.number_field :overheadpress_wt, :value=>(@previous_max.overheadpress) %>
+        <%= f.number_field :overheadpress_wt, :value=>(@previous_max.try(:overheadpress)) %>
       </td>
       <td>
         <%= f.number_field :overheadpress_reps, :value=>(1) %>
